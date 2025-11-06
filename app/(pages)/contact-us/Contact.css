@@ -1,0 +1,18 @@
+/* Contact.css */
+@media (max-width: 768px) {
+  .contactWrapper {
+    width: 100%;
+    /* padding: 0; */
+    left: 0;
+  }
+  .mapSection
+  {
+    display: block;
+    left: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    top: 0;
+    margin-bottom: 10px;
+    
+  }
+}

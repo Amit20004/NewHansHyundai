@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
+
+
+.btn {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  min-width: 13ch;
+  padding: 0.5rem 1.15rem;
+  border-radius: 0.2rem;
+  background: #386bd8;
+  box-shadow:
+    inset 0 0 0 0.1em #3883d8,
+    0 0 0 rgba(113, 56, 226, 0);
+  transition:
+    opacity 0.3s cubic-bezier(0.2, 0, 0.1, 1),
+    transform 0.3s cubic-bezier(0.2, 0, 0.1, 1),
+    box-shadow 0.5s ease,
+    color 0.5s ease,
+    background 0.5s ease;
+  will-change: box-shadow, color, transform, opacity, background;
+}
+
+.btn.outlined {
+  display: inline-flex;
+  background: none;
+  color: #141b77; /* darken(#6138D8, 40%) */
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 0;
+  right: -50%;
+  left: -50%;
+  height: 0;
+  padding-bottom: 200%;
+  border-radius: 39%;
+  opacity: 0;
+  transition: transform 0s cubic-bezier(0.2, 0, 0.1, 1) 0.5s, opacity 0.5s cubic-bezier(0.2, 0, 0.1, 1);
+}
+
+.btn::before {
+  transform: translate3d(-10%, 4.8em, 0) rotate(330deg);
+  background: linear-gradient(
+    25deg,
+    #405de0,
+    rgba(103, 64, 224, 0)
+  );
+}
+
+.btn::after {
+  transform: translate3d(10%, 4.8em, 0) rotate(0deg);
+  background: linear-gradient(
+    70deg,
+    rgba(64, 120, 224, 0.5),
+    rgba(96, 52, 214, 0)
+  );
+}
+
+.btn:hover,
+.btn:focus {
+  background: #4080e0; /* adjust-hue(#6138D8, 20) */
+  box-shadow:
+    inset 0 0 0 0.1em #3870d8,
+    0 0 1.75em rgba(64, 107, 224, 0.5);
+  transition:
+    opacity 0.3s cubic-bezier(0.2, 0, 0.1, 1),
+    transform 0.3s cubic-bezier(0.2, 0, 0.1, 1),
+    box-shadow 2s ease,
+    color 1.5s ease,
+    background 1s ease 0.75s;
+}
+
+.btn:hover.outlined,
+.btn:focus.outlined {
+  color: white;
+}
+
+.btn:hover::before,
+.btn:focus::before,
+.btn:hover::after,
+.btn:focus::after {
+  opacity: 1;
+  transition: transform 2s ease 0s, opacity 0.2s ease;
+}
+
+.btn:hover::before,
+.btn:focus::before {
+  transform: translate3d(-10%, -1em, 0) rotate(100deg);
+}
+
+.btn:hover::after,
+.btn:focus::after {
+  transform: translate3d(10%, -1em, 0) rotate(180deg);
+}
+
+
+@media (max-width:768px) {
+  .btn{
+    font-size: 0.7rem;
+  }
+  
+}

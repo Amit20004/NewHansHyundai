@@ -1,0 +1,22 @@
+/* In Parallax.css */
+#mainParallax {
+  width: 100%;
+  margin: 0 auto;
+  /* max-width: 1400px; */
+}
+
+#parallax {
+  height: 500px;
+}
+@media (max-width:768px) {
+  #parallax{
+    height:250px;
+  }
+  
+}
+@media (max-width:425px) {
+  #parallax{
+    height:100px;
+  }
+  
+}

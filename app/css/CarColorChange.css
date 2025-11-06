@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+  .swatchColor {
+    display: none;
+  }
+  .swatchImgDiv {
+    padding: 0;
+    height: 50px;
+    width: 50px;
+  }
+  
+}
