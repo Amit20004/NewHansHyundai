@@ -4,8 +4,14 @@ import { useState, useEffect, useRef } from "react"
 import axios from "axios"
 import { Edit, Trash, Plus, Upload, X, ChevronLeft, ChevronRight } from "lucide-react"
 import toast, { Toaster } from "react-hot-toast"
-import JoditEditor from "jodit-react"
+import dynamic from "next/dynamic"
 import Image from "next/image"
+
+// Dynamically import JoditEditor with SSR disabled
+const JoditEditor = dynamic(() => import("jodit-react"), {
+  ssr: false,
+  loading: () => <div className="h-40 border rounded bg-gray-100 flex items-center justify-center">Loading editor...</div>
+})
 
 export default function CarSafetyAdmin() {
   const [items, setItems] = useState([])
@@ -393,7 +399,10 @@ export default function CarSafetyAdmin() {
                   <td className="py-3 px-2">
                     {item.image ? (
                       <Image
-                       width={100} height={100} quality={100} unoptimized={true}
+                        width={100}
+                        height={100}
+                        quality={100}
+                        unoptimized={true}
                         src={`http://localhost:8000/${item.image}`}
                         className="h-14 w-20 object-cover rounded mx-auto"
                         alt={item.title || "image"}
@@ -449,7 +458,15 @@ export default function CarSafetyAdmin() {
           currentItems.map((item) => (
             <div key={item.id} className="bg-white w-[90%] max-w-md border border-gray-200 rounded-xl shadow-md p-4">
               {item.image ? (
-                <Image  width={100} height={100} quality={100} unoptimized={true} src={`http://localhost:8000/${item.image}`} className="h-32 w-full object-cover rounded-md mb-3" alt={item.title || "image"} />
+                <Image
+                  width={100}
+                  height={100}
+                  quality={100}
+                  unoptimized={true}
+                  src={`http://localhost:8000/${item.image}`}
+                  className="h-32 w-full object-cover rounded-md mb-3"
+                  alt={item.title || "image"}
+                />
               ) : (
                 <div className="h-32 w-full bg-gray-200 rounded-md mb-3 flex items-center justify-center text-gray-500">
                   No Image

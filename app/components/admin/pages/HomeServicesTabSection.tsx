@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Edit, Trash, Plus, X } from "lucide-react"
+import Image from "next/image"
 
 const BASE_URL = "http://localhost:8000"
 
@@ -92,10 +93,10 @@ const CarServiceEditor = () => {
   const startEdit = (service) => {
     setEditingId(service.id)
     setFormData({
-      main_heading: service.main_heading,
-      main_content: service.main_content,
-      tab_title: service.tab_title,
-      points: Array.isArray(service.points) ? service.points.join(", ") : service.points,
+      main_heading: service.main_heading || "",
+      main_content: service.main_content || "",
+      tab_title: service.tab_title || "",
+      points: Array.isArray(service.points) ? service.points.join(", ") : (service.points || ""),
       imageFile: null,
       imagePreview: service.image_url ? `${BASE_URL}${service.image_url}` : null,
     })
@@ -174,7 +175,10 @@ const CarServiceEditor = () => {
                 <td className="px-4 py-3">
                   {item.image_url ? (
                     <Image
-
+                      width={48}
+                      height={48}
+                      quality={100}
+                      unoptimized={true}
                       src={`${BASE_URL}${item.image_url}`}
                       alt="Service"
                       className="w-12 h-12 object-cover rounded-lg"
@@ -254,7 +258,10 @@ const CarServiceEditor = () => {
                 <div>
                   <span className="text-sm font-medium text-gray-500">Image:</span>
                   <Image
-                  width={100} height={100} quality={100} unoptimized={true}
+                    width={400}
+                    height={128}
+                    quality={100}
+                    unoptimized={true}
                     src={`${BASE_URL}${item.image_url}`}
                     alt="Service"
                     className="w-full h-32 object-cover rounded-lg mt-2"
@@ -340,8 +347,11 @@ const CarServiceEditor = () => {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Preview</label>
                   <Image
-                    
-                    src={formData.imagePreview || "/placeholder.svg"}
+                    width={400}
+                    height={192}
+                    quality={100}
+                    unoptimized={true}
+                    src={formData.imagePreview}
                     alt="Preview"
                     className="w-full h-48 object-cover rounded-lg border border-gray-200"
                   />
