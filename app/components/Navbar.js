@@ -190,7 +190,7 @@ const Navbar = () => {
                              prefetch={false} reloadDocument
                             href={`/hyundai-${car.name
     .toLowerCase()
-    .replaceAll(" ", "-")}`}><Image
+    .replaceAll(" ", "-")}`}><Image alt="image"
     width={100} height={100} quality={100} unoptimized={true}
 
 
@@ -232,6 +232,7 @@ const Navbar = () => {
                   >
                     <div className="w-full h-32 mb-4 flex items-center justify-center">
                       <Image
+                      alt="image"
                       width={100} height={100} quality={100} unoptimized={true}
                         src={
                           car?.image
@@ -770,7 +771,7 @@ const Navbar = () => {
                 router.push("/");
               }}
             >
-              <Image width={200} height={150} quality={100} unoptimized={true} src={"https://hanshyundai.com/assets/uploads/logo.png"} />
+              <Image alt="image" width={200} height={150} quality={100} unoptimized={true} src={"https://hanshyundai.com/assets/uploads/logo.png"} />
             </div>
           </div>
 
@@ -917,6 +918,7 @@ const Navbar = () => {
                                         >
                                           <div className="w-full h-20 mb-2 flex items-center justify-center">
                                             <Image
+                                            alt="image"
                                             width={100} height={100} quality={100} unoptimized={true}
                                               src={
                                                 car?.image || "/placeholder.png"
@@ -947,6 +949,7 @@ const Navbar = () => {
                                   >
                                     <div className="w-full h-20 mb-2 flex items-center justify-center">
                                       <Image
+                                      alt="image"
                                       width={100} height={100} quality={100} unoptimized={true}
                                         src={car?.image || "/placeholder.png"} // fallback if image missing
                                         alt={car?.name || "Car"}

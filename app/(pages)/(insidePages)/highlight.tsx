@@ -15,7 +15,7 @@ export default function HighlightsPage() {
   const carName = segments[segments.length - 1]?.toLowerCase();
 
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  // const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [aboutData, setAboutData] = useState([]);
   const [tabContent, setTabContent] = useState([]);
   const [loading, setLoading] = useState(true);
