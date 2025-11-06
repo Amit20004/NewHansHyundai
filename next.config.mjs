@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: "export", // ✅ Required for cPanel static hosting
+
   eslint: {
     ignoreDuringBuilds: true,
   },

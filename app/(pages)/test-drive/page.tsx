@@ -138,7 +138,7 @@ export default function BookServiceTabs() {
           }`}
           placeholder={label}
         />
-        {extra}
+        {/* {extra} */}
       </div>
       {errors[id] && <p className="text-red-500 text-sm">{errors[id]}</p>}
     </div>
